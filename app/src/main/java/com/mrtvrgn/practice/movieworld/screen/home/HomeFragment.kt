@@ -57,8 +57,6 @@ class HomeFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.home) {
-
-
             childFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, ShowPieceFragment())
                 .addToBackStack(ShowPieceFragment::javaClass.name)
