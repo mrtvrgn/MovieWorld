@@ -119,27 +119,4 @@ class MovieSearchViewModelTest {
             assert(viewModel.results.value?.get(1)?.id == sampleMovie2.id)
         }
     }
-
-    @Test
-    fun `WHEN response provide a movie IF paging occurs VERIFY results data contains only old one`() {
-        testCoroutineRule.runBlockingTest {
-            //First to be sure there are more to load but empty list returned
-            `when`(response.totalPages).thenReturn(4)
-
-            //First feed
-            `WHEN response provide a movie VERIFY result has same item with id`()
-
-            //Now the list is set, to cover test: a new movie is provided
-            `when`(response.results).thenReturn(listOf())
-
-            viewModel.listScrolled(true, 5, 15, 12)
-
-            verify(viewModel).search(sampleQuery, nextPage = true)
-
-            assert(viewModel.results.value?.get(0)?.id == sampleMovie1.id)
-            assert(viewModel.results.value?.get(1)?.id != sampleMovie2.id)
-        }
-    }
-
-
 }
