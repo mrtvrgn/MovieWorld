@@ -1,6 +1,7 @@
 package com.mrtvrgn.practice.movieworld.screen.search
 
 import android.util.Log
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,9 +16,12 @@ import kotlinx.coroutines.launch
 class MovieSearchViewModel @Inject constructor(private val repo: MovieSearchRepository) : ViewModel() {
 
     val results: MutableLiveData<List<MediaSearchItemModel>> = MediatorLiveData()
-    private var page = 1 //TODO: handle paging
+    private var page = 1
     private var canLoadMore = true
-    private var currentQuery: String? = null
+    private var isLoading = false
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    var currentQuery: String? = null
 
     fun search(query: String?, nextPage: Boolean = false) {
 
@@ -59,8 +63,6 @@ class MovieSearchViewModel @Inject constructor(private val repo: MovieSearchRepo
             }
         }
     }
-
-    private var isLoading = false
 
     fun listScrolled(
         isDown: Boolean,
