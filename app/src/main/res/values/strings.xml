@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MovieWorld</string>
+    <string name="trending_movies">Trending Movies</string>
+    <string name="top_rated_movies">Top Rated Movies</string>
+    <string name="upcoming_movies">Upcoming Movies</string>
+    <string name="no_result_msg">There are no movies that matched your query.</string>
+
+    <!-- URLs -->
+    <string name="web_intent_url">https://www.themoviedb.org/movie/%d</string>
+    <string name="home">home</string>
+
+
+</resources>
