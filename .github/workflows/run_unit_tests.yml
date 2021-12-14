@@ -13,7 +13,7 @@ jobs:
 
 steps:
     - name: Checkout the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
       - name: Copy gradle properties file
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
@@ -27,7 +27,7 @@ steps:
       run: ./gradlew test --stacktrace
 
     - name: Upload Reports
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v1
       with:
         name: Test-Reports
         path: app/build/reports
