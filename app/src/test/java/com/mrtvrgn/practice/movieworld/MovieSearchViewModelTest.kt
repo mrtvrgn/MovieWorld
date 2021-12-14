@@ -137,7 +137,7 @@ class MovieSearchViewModelTest {
             verify(viewModel).search(sampleQuery, nextPage = true)
 
             assert(viewModel.results.value?.get(0)?.id == sampleMovie1.id)
-            assert(viewModel.results.value?.size == 2)
+            assert(viewModel.results.value?.size == 1)
         }
     }
 
